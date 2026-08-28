@@ -3,90 +3,534 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หน้าแรก | Student Portfolio M.3</title>
+
+    <title>Gaming Portfolio | HOME</title>
+
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <header class="navbar-header">
-        <nav class="navbar">
-            <a href="index.html" class="logo">My<span>Portfolio</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">หน้าแรก</a></li>
-                <li><a href="profile.html">ประวัติส่วนตัว</a></li>
-                <li><a href="education.html">การศึกษา</a></li>
-                <li><a href="hobby.html">งานอดิเรก</a></li>
-                <li><a href="contact.html">ติดต่อ</a></li>
-            </ul>
+    <!-- Background Decoration -->
+    <div class="page-glow glow-one"></div>
+    <div class="page-glow glow-two"></div>
+
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="navbar container">
+
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎮</span>
+                PORTFOLIO<span>.</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="active">HOME</a>
+                <a href="profile.html">ABOUT</a>
+                <a href="#skills">SKILLS</a>
+                <a href="#projects">PROJECTS</a>
+                <a href="education.html">EDUCATION</a>
+                <a href="hobby.html">HOBBIES</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+
         </nav>
     </header>
 
+
     <main>
-        <section class="hero-section">
-            <div class="hero-container">
-                <div class="hero-text">
-                    <span class="badge">ยินดีต้อนรับสู่เว็บไซต์ของฉัน</span>
-                    <h1>สวัสดีครับ! ฉันชื่อ <span class="highlight">[กรอกชื่อ-นามสกุล]</span></h1>
-                    <h2>นักเรียนชั้นมัธยมศึกษาปีที่ 3/<span>[กรอกห้อง]</span></h2>
-                    <p class="hero-description">
-                        ยินดีต้อนรับสู่พอร์ตโฟลิโอออนไลน์ของฉัน เว็บไซต์นี้จัดทำขึ้นเพื่อนำเสนอประวัติ ผลงาน ความสนใจ และทักษะด้านเทคโนโลยีสารสนเทศของฉันครับ
+
+        <!-- HERO -->
+        <section class="hero section-dark">
+
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+
+                    <p class="eyebrow">
+                        <span></span>
+                        STUDENT GAMING PORTFOLIO
                     </p>
+
+                    <h1>
+                        GAME ON.<br>
+                        <span>DREAM ON.</span>
+                    </h1>
+
+                    <div class="hero-line"></div>
+
+                    <p class="hero-intro">
+                        สวัสดีครับ! ผมชื่อ
+                        <strong>[กรอกชื่อ-นามสกุล]</strong>
+                        <br>
+                        นักเรียนชั้นมัธยมศึกษาปีที่ 3
+                    </p>
+
+                    <p class="hero-description">
+                        ผมเป็นนักเรียนที่สนใจด้านเทคโนโลยี
+                        การสร้างเว็บไซต์ การออกแบบ และโลกของเกม
+                        ผมชอบเรียนรู้สิ่งใหม่ ๆ และพัฒนาทักษะของตัวเองอยู่เสมอ
+                    </p>
+
                     <div class="hero-buttons">
-                        <a href="profile.html" class="btn btn-primary">รู้จักฉันมากขึ้น</a>
-                        <a href="hobby.html" class="btn btn-outline">ดูงานอดิเรกของฉัน</a>
+                        <a href="#projects" class="btn btn-primary">
+                            ดูผลงานของฉัน <span>→</span>
+                        </a>
+
+                        <a href="profile.html" class="btn btn-outline">
+                            รู้จักฉันมากขึ้น
+                        </a>
                     </div>
+
+                    <div class="hero-status">
+                        <div>
+                            <span>STATUS</span>
+                            <strong>LEVELING UP</strong>
+                        </div>
+
+                        <div>
+                            <span>FOCUS</span>
+                            <strong>WEB & DESIGN</strong>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="hero-image-wrapper">
-                    <div class="blob-bg"></div>
-                    <img src="https://placehold.co/400x400/1976D2/FFFFFF?text=Profile+Image" alt="รูปโปรไฟล์ของฉัน" class="hero-img">
+
+
+                <!-- Profile -->
+                <div class="hero-visual">
+
+                    <div class="tech-circle circle-one"></div>
+                    <div class="tech-circle circle-two"></div>
+
+                    <div class="profile-frame">
+
+                        <div class="frame-corner corner-top-left"></div>
+                        <div class="frame-corner corner-top-right"></div>
+                        <div class="frame-corner corner-bottom-left"></div>
+                        <div class="frame-corner corner-bottom-right"></div>
+
+                        <img
+                            src="https://placehold.co/500x600/111111/D4AF37?text=YOUR+PHOTO"
+                            alt="รูปโปรไฟล์ของฉัน"
+                        >
+
+                    </div>
+
+                    <div class="profile-tag">
+                        <span>PLAYER</span>
+                        <strong>[YOUR NAME]</strong>
+                    </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <section class="container section-padding">
-            <h2 class="section-title">ไฮไลต์ประจำตัว</h2>
-            <div class="grid grid-3">
-                <div class="card stat-card">
-                    <div class="card-icon">🎓</div>
-                    <h3>การศึกษา</h3>
-                    <p>ชั้นมัธยมศึกษาปีที่ 3 โรงเรียน[กรอกชื่อโรงเรียน]</p>
+
+        <!-- ABOUT PREVIEW -->
+        <section class="about-preview section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-number">01</div>
+
+                    <div>
+                        <p class="eyebrow">PLAYER PROFILE</p>
+                        <h2>ABOUT <span>ME</span></h2>
+                        <p>เกี่ยวกับฉัน</p>
+                    </div>
+
                 </div>
-                <div class="card stat-card">
-                    <div class="card-icon">💻</div>
-                    <h3>ความสนใจ</h3>
-                    <p>[กรอกความสนใจ เช่น การเขียนโปรแกรม, เทคโนโลยี]</p>
+
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+
+                        <h3>
+                            READY TO LEARN.<br>
+                            READY TO CREATE.
+                        </h3>
+
+                        <p>
+                            ผมเป็นนักเรียนชั้นมัธยมศึกษาปีที่ 3
+                            ที่สนใจเทคโนโลยี การออกแบบเว็บไซต์
+                            และการเรียนรู้สิ่งใหม่ ๆ
+                        </p>
+
+                        <p>
+                            ผมเชื่อว่าทุกทักษะสามารถพัฒนาได้
+                            หากเรามีความตั้งใจ ฝึกฝน และไม่หยุดเรียนรู้
+                        </p>
+
+                        <a href="profile.html" class="text-link">
+                            ดูประวัติเพิ่มเติม <span>→</span>
+                        </a>
+
+                    </div>
+
+
+                    <div class="stats-grid">
+
+                        <div class="stat-item">
+                            <strong>3<span>+</span></strong>
+                            <p>ปีแห่งการเรียนรู้</p>
+                        </div>
+
+                        <div class="stat-item">
+                            <strong>10<span>+</span></strong>
+                            <p>โปรเจกต์</p>
+                        </div>
+
+                        <div class="stat-item">
+                            <strong>5<span>+</span></strong>
+                            <p>ทักษะ</p>
+                        </div>
+
+                        <div class="stat-item">
+                            <strong>100<span>%</span></strong>
+                            <p>ความตั้งใจ</p>
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="card stat-card">
-                    <div class="card-icon">⭐</div>
-                    <h3>วิชาที่ชอบ</h3>
-                    <p>[กรอกวิชาที่ชอบ เช่น คอมพิวเตอร์, ภาษาอังกฤษ]</p>
-                </div>
+
             </div>
+
         </section>
+
+
+        <!-- SKILLS -->
+        <section class="skills-section section" id="skills">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-number">02</div>
+
+                    <div>
+                        <p class="eyebrow">ABILITY SYSTEM</p>
+                        <h2>MY <span>SKILLS</span></h2>
+                        <p>ทักษะของฉัน</p>
+                    </div>
+
+                </div>
+
+
+                <div class="skills-layout">
+
+                    <div class="skill-description">
+
+                        <div class="skill-big-icon">⚡</div>
+
+                        <h3>
+                            SKILL<br>
+                            <span>UNLOCKED</span>
+                        </h3>
+
+                        <p>
+                            ทักษะเหล่านี้คือสิ่งที่ผมกำลังเรียนรู้
+                            และพัฒนาอย่างต่อเนื่อง
+                        </p>
+
+                        <div class="skill-panel-line"></div>
+
+                        <p class="small-text">
+                            LEVEL SYSTEM • CONTINUOUS LEARNING
+                        </p>
+
+                    </div>
+
+
+                    <div class="skills-list">
+
+                        <div class="skill-row">
+                            <div class="skill-info">
+                                <span>HTML</span>
+                                <strong>90%</strong>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-fill fill-90"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-row">
+                            <div class="skill-info">
+                                <span>CSS</span>
+                                <strong>85%</strong>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-fill fill-85"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-row">
+                            <div class="skill-info">
+                                <span>JAVASCRIPT</span>
+                                <strong>75%</strong>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-fill fill-75"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-row">
+                            <div class="skill-info">
+                                <span>PYTHON</span>
+                                <strong>70%</strong>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-fill fill-70"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-row">
+                            <div class="skill-info">
+                                <span>UI / UX DESIGN</span>
+                                <strong>75%</strong>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-fill fill-75"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-row">
+                            <div class="skill-info">
+                                <span>TEAMWORK</span>
+                                <strong>90%</strong>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-fill fill-90"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+        <section class="projects-section section" id="projects">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-number">03</div>
+
+                    <div>
+                        <p class="eyebrow">MISSION COMPLETED</p>
+                        <h2>MY <span>PROJECTS</span></h2>
+                        <p>ผลงานของฉัน</p>
+                    </div>
+
+                </div>
+
+
+                <div class="project-filter">
+                    <button class="filter active-filter">ทั้งหมด</button>
+                    <button class="filter">Coding</button>
+                    <button class="filter">Website</button>
+                    <button class="filter">Design</button>
+                    <button class="filter">Other</button>
+                </div>
+
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+                            <img
+                                src="https://placehold.co/700x450/111111/D4AF37?text=E-SPORT+TOURNAMENT"
+                                alt="ผลงาน E-Sport Tournament"
+                            >
+                            <span class="project-type">DESIGN</span>
+                        </div>
+
+                        <div class="project-content">
+                            <p class="project-code">PROJECT_01</p>
+                            <h3>E-SPORT TOURNAMENT</h3>
+                            <p>
+                                ผลงานเกี่ยวกับการแข่งขัน E-Sport
+                                ออกแบบให้มีความดุดันและทันสมัย
+                            </p>
+
+                            <a href="#" class="project-link">
+                                ดูรายละเอียด <span>→</span>
+                            </a>
+                        </div>
+
+                    </article>
+
+
+                    <article class="project-card featured-project">
+
+                        <div class="project-image">
+                            <img
+                                src="https://placehold.co/700x450/171717/F5C451?text=PORTFOLIO+WEBSITE"
+                                alt="ผลงาน Portfolio Website"
+                            >
+                            <span class="project-type">WEBSITE</span>
+                        </div>
+
+                        <div class="project-content">
+                            <p class="project-code">PROJECT_02</p>
+                            <h3>PORTFOLIO WEBSITE</h3>
+                            <p>
+                                เว็บไซต์แนะนำตัวเองแนว Gaming
+                                ที่ออกแบบด้วย HTML และ CSS
+                            </p>
+
+                            <a href="#" class="project-link">
+                                ดูรายละเอียด <span>→</span>
+                            </a>
+                        </div>
+
+                    </article>
+
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+                            <img
+                                src="https://placehold.co/700x450/111111/D4AF37?text=SCHOOL+PROJECT"
+                                alt="ผลงานโครงงานในโรงเรียน"
+                            >
+                            <span class="project-type">CODING</span>
+                        </div>
+
+                        <div class="project-content">
+                            <p class="project-code">PROJECT_03</p>
+                            <h3>SCHOOL PROJECT</h3>
+                            <p>
+                                ผลงานและโครงงานที่สร้างขึ้น
+                                เพื่อใช้ในการเรียนและพัฒนาทักษะ
+                            </p>
+
+                            <a href="#" class="project-link">
+                                ดูรายละเอียด <span>→</span>
+                            </a>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACHIEVEMENTS -->
+        <section class="achievement-preview section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-number">05</div>
+
+                    <div>
+                        <p class="eyebrow">PLAYER ACHIEVEMENTS</p>
+                        <h2>MY <span>ACHIEVEMENTS</span></h2>
+                        <p>ความสำเร็จของฉัน</p>
+                    </div>
+
+                </div>
+
+
+                <div class="achievement-grid">
+
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🏅</div>
+                        <span>2026</span>
+                        <h3>รางวัลชนะเลิศ</h3>
+                        <p>ผลงานหรือกิจกรรมที่ได้รับรางวัล</p>
+                    </div>
+
+                    <div class="achievement-card main-achievement">
+                        <div class="achievement-icon">🏆</div>
+                        <span>2026</span>
+                        <h3>เข้าร่วมการแข่งขัน</h3>
+                        <p>ประสบการณ์การแข่งขันและการทำงานร่วมกับทีม</p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div class="achievement-icon">⭐</div>
+                        <span>2026</span>
+                        <h3>เกียรติบัตร</h3>
+                        <p>ผลงานและกิจกรรมที่ได้รับการรับรอง</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CTA -->
+        <section class="cta-section">
+
+            <div class="container cta-content">
+
+                <p class="eyebrow">NEXT MISSION</p>
+
+                <h2>
+                    READY TO<br>
+                    <span>CONNECT?</span>
+                </h2>
+
+                <p>
+                    สามารถดูข้อมูลเพิ่มเติมและติดต่อฉันได้ที่หน้าติดต่อ
+                </p>
+
+                <a href="contact.html" class="btn btn-primary">
+                    CONTACT ME <span>→</span>
+                </a>
+
+            </div>
+
+        </section>
+
     </main>
 
+
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>MyPortfolio</h3>
-                <p>เว็บไซต์แนะนำตัวเอง โครงงานวิชาคอมพิวเตอร์ ชั้นมัธยมศึกษาปีที่ 3</p>
-                <p>จัดทำโดย: [กรอกชื่อ-นามสกุล] ชั้น ม.3/[กรอกห้อง]</p>
-            </div>
+
+        <div class="container footer-top">
+
+            <a href="index.html" class="logo">
+                🎮 PORTFOLIO<span>.</span>
+            </a>
+
             <div class="footer-links">
-                <h4>ลิงก์ด่วน</h4>
-                <ul>
-                    <li><a href="index.html">หน้าแรก</a></li>
-                    <li><a href="profile.html">ประวัติส่วนตัว</a></li>
-                    <li><a href="education.html">การศึกษา</a></li>
-                    <li><a href="hobby.html">งานอดิเรก</a></li>
-                    <li><a href="contact.html">ติดต่อ</a></li>
-                </ul>
+                <a href="index.html">HOME</a>
+                <a href="profile.html">ABOUT</a>
+                <a href="education.html">EDUCATION</a>
+                <a href="hobby.html">HOBBIES</a>
+                <a href="contact.html">CONTACT</a>
             </div>
+
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Student Portfolio Project. All Rights Reserved.</p>
+
+        <div class="container footer-bottom">
+            <p>© 2026 [ชื่อของคุณ]. All rights reserved.</p>
+            <p>DESIGNED WITH PASSION FOR GAMING & TECHNOLOGY</p>
         </div>
+
     </footer>
 
 </body>
