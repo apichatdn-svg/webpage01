@@ -1,1156 +1,1575 @@
-```html
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gaming Portfolio | HOME</title>
+    <title>Gaming Portfolio | Home</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Gaming Background -->
     <style>
-        .gaming-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
+        /* =====================================================
+           INDEX PAGE - GAMING PORTFOLIO
+           ===================================================== */
 
-            background-image: url("images/gaming-bg.avif");
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-
-            z-index: -2;
-            pointer-events: none;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .gaming-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-
-            background: linear-gradient(
-                90deg,
-                rgba(0, 0, 0, 0.82),
-                rgba(0, 0, 0, 0.50),
-                rgba(0, 0, 0, 0.82)
-            );
-
-            z-index: -1;
-            pointer-events: none;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
             background: #050505;
+            overflow-x: hidden;
         }
 
-        .site-header,
-        main,
-        .footer {
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =====================================================
+           GAMING BACKGROUND
+           ===================================================== */
+
+        .gaming-bg {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("images/gaming-bg.avif");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -10;
+            transform: scale(1.03);
+        }
+
+        .gaming-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.95) 0%,
+                    rgba(0,0,0,0.72) 45%,
+                    rgba(0,0,0,0.88) 100%
+                );
+
+            z-index: -9;
+        }
+
+        /* เพิ่มความเข้มบริเวณด้านล่าง */
+        .gaming-bg-bottom {
+            position: fixed;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent 55%,
+                    rgba(5,5,5,0.95) 100%
+                );
+
+            z-index: -8;
+            pointer-events: none;
+        }
+
+        /* =====================================================
+           GOLD VARIABLES
+           ===================================================== */
+
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f6d76b;
+            --gold-dark: #9c7818;
+            --black: #050505;
+            --dark: #0b0b0b;
+            --gray: #999;
+            --line: rgba(212,175,55,0.35);
+        }
+
+        /* =====================================================
+           NAVBAR
+           ===================================================== */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background: rgba(3,3,3,0.72);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: #fff;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .logo-icon {
+            color: var(--gold);
+            margin-right: 7px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
             position: relative;
-            z-index: 1;
+
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+
+            color: #aaa;
+
+            transition: 0.3s;
         }
 
-        .hero,
-        .about-preview,
-        .skills-section,
-        .projects-section,
-        .achievement-preview,
-        .cta-section {
-            background: transparent;
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--gold);
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 120px 7% 80px;
+
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            width: 45%;
+            height: 1px;
+
+            background: linear-gradient(
+                90deg,
+                var(--gold),
+                transparent
+            );
+        }
+
+        .hero-grid {
+            width: 100%;
+            max-width: 1400px;
+
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+
+            align-items: center;
+
+            gap: 60px;
+        }
+
+        /* =====================================================
+           HERO TEXT
+           ===================================================== */
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            color: var(--gold);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 25px;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 35px;
+            height: 2px;
+
+            background: var(--gold);
+
+            box-shadow: 0 0 12px rgba(212,175,55,0.6);
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 8vw, 110px);
+
+            line-height: 0.88;
+
+            font-weight: 900;
+
+            letter-spacing: -4px;
+
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+
+            text-shadow:
+                0 0 25px rgba(212,175,55,0.35);
+        }
+
+        .hero-line {
+            width: 120px;
+            height: 4px;
+
+            margin: 30px 0;
+
+            background: var(--gold);
+
+            box-shadow:
+                0 0 15px rgba(212,175,55,0.5);
+        }
+
+        .hero-intro {
+            font-size: 20px;
+            line-height: 1.7;
+
+            color: #eee;
+
+            margin-bottom: 12px;
+        }
+
+        .hero-intro strong {
+            color: var(--gold-light);
+        }
+
+        .hero-description {
+            max-width: 620px;
+
+            color: #aaa;
+
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        /* =====================================================
+           BUTTONS
+           ===================================================== */
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+
+            margin-top: 35px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+
+            padding: 15px 25px;
+
+            font-size: 12px;
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            color: #050505;
+
+            background: var(--gold);
+
+            border: 1px solid var(--gold);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 30px rgba(212,175,55,0.25);
+        }
+
+        .btn-outline {
+            color: #fff;
+
+            border: 1px solid rgba(255,255,255,0.3);
+
+            background: rgba(0,0,0,0.35);
+        }
+
+        .btn-outline:hover {
+            color: var(--gold);
+
+            border-color: var(--gold);
+
+            transform: translateY(-4px);
+        }
+
+        /* =====================================================
+           PLAYER STATUS
+           ===================================================== */
+
+        .hero-status {
+            display: flex;
+            gap: 45px;
+
+            margin-top: 45px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .hero-status div {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .hero-status span {
+            color: #777;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+        }
+
+        .hero-status strong {
+            color: var(--gold);
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+        }
+
+        /* =====================================================
+           HERO VISUAL
+           ===================================================== */
+
+        .hero-visual {
+            position: relative;
+
+            min-height: 600px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-frame {
+            position: relative;
+
+            width: min(390px, 80vw);
+            height: 500px;
+
+            padding: 10px;
+
+            background: rgba(0,0,0,0.4);
+
+            border: 1px solid rgba(212,175,55,0.5);
+
+            transform: rotate(2deg);
+
+            box-shadow:
+                0 0 60px rgba(0,0,0,0.7),
+                0 0 35px rgba(212,175,55,0.08);
+
+            z-index: 2;
+        }
+
+        .profile-frame::before {
+            content: "";
+
+            position: absolute;
+            inset: -15px;
+
+            border: 1px solid rgba(212,175,55,0.15);
+
+            z-index: -1;
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            filter:
+                grayscale(15%)
+                contrast(1.1);
+        }
+
+        /* Corners */
+
+        .frame-corner {
+            position: absolute;
+
+            width: 45px;
+            height: 45px;
+
+            border-color: var(--gold);
+
+            z-index: 5;
+        }
+
+        .corner-top-left {
+            top: -2px;
+            left: -2px;
+
+            border-top: 4px solid;
+            border-left: 4px solid;
+        }
+
+        .corner-top-right {
+            top: -2px;
+            right: -2px;
+
+            border-top: 4px solid;
+            border-right: 4px solid;
+        }
+
+        .corner-bottom-left {
+            bottom: -2px;
+            left: -2px;
+
+            border-bottom: 4px solid;
+            border-left: 4px solid;
+        }
+
+        .corner-bottom-right {
+            bottom: -2px;
+            right: -2px;
+
+            border-bottom: 4px solid;
+            border-right: 4px solid;
+        }
+
+        /* =====================================================
+           PLAYER TAG
+           ===================================================== */
+
+        .profile-tag {
+            position: absolute;
+
+            right: 0;
+            bottom: 50px;
+
+            padding: 15px 25px;
+
+            background: rgba(5,5,5,0.92);
+
+            border-left: 3px solid var(--gold);
+
+            z-index: 5;
+        }
+
+        .profile-tag span {
+            display: block;
+
+            color: #777;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+        }
+
+        .profile-tag strong {
+            display: block;
+
+            margin-top: 5px;
+
+            color: var(--gold);
+
+            font-size: 16px;
+
+            letter-spacing: 2px;
+        }
+
+        /* =====================================================
+           DECORATION
+           ===================================================== */
+
+        .tech-circle {
+            position: absolute;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+
+        .circle-one {
+            width: 500px;
+            height: 500px;
+
+            border-top-color: var(--gold);
+
+            animation: spin 18s linear infinite;
+        }
+
+        .circle-two {
+            width: 600px;
+            height: 600px;
+
+            border-bottom-color: rgba(212,175,55,0.4);
+
+            animation: spinReverse 25s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spinReverse {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        /* =====================================================
+           SECTION COMMON
+           ===================================================== */
+
+        .section {
+            position: relative;
+
+            padding: 110px 7%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(5,5,5,0.25),
+                    rgba(5,5,5,0.94)
+                );
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-heading {
+            margin-bottom: 50px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(40px, 6vw, 70px);
+
+            line-height: 0.95;
+
+            font-weight: 900;
+        }
+
+        .section-heading h2 span {
+            color: var(--gold);
+        }
+
+        .section-subtitle {
+            color: #888;
+
+            margin-top: 12px;
+
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           ABOUT
+           ===================================================== */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .about-title {
+            font-size: 38px;
+
+            line-height: 1.05;
+
+            margin-bottom: 25px;
+        }
+
+        .about-title span {
+            color: var(--gold);
+        }
+
+        .about-text p {
+            color: #aaa;
+
+            line-height: 1.9;
+
+            margin-bottom: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2,1fr);
+
+            gap: 15px;
+        }
+
+        .stat {
+            padding: 30px;
+
+            background: rgba(10,10,10,0.75);
+
+            border: 1px solid rgba(212,175,55,0.2);
+
+            transition: 0.3s;
+        }
+
+        .stat:hover {
+            border-color: var(--gold);
+
+            transform: translateY(-5px);
+        }
+
+        .stat strong {
+            display: block;
+
+            color: var(--gold);
+
+            font-size: 42px;
+        }
+
+        .stat p {
+            color: #888;
+
+            margin-top: 8px;
+        }
+
+        /* =====================================================
+           SKILLS
+           ===================================================== */
+
+        .skills-list {
+            display: grid;
+
+            gap: 18px;
+        }
+
+        .skill {
+            padding: 22px 25px;
+
+            background: rgba(8,8,8,0.78);
+
+            border-left: 3px solid rgba(212,175,55,0.3);
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            border-left-color: var(--gold);
+        }
+
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 10px;
+
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .skill-top span:last-child {
+            color: var(--gold);
+        }
+
+        .progress {
+            width: 100%;
+            height: 5px;
+
+            background: #222;
+        }
+
+        .progress span {
+            display: block;
+
+            height: 100%;
+
+            background: var(--gold);
+
+            box-shadow:
+                0 0 10px rgba(212,175,55,0.5);
+        }
+
+        /* =====================================================
+           PROJECTS
+           ===================================================== */
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3,1fr);
+
+            gap: 20px;
+        }
+
+        .project {
+            background: rgba(7,7,7,0.85);
+
+            border: 1px solid rgba(212,175,55,0.2);
+
+            overflow: hidden;
+
+            transition: 0.35s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+
+            border-color: var(--gold);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .project-image {
+            height: 220px;
+
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+        .project:hover img {
+            transform: scale(1.08);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-number {
+            color: var(--gold);
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+        }
+
+        .project h3 {
+            margin: 10px 0;
+
+            font-size: 21px;
+        }
+
+        .project p {
+            color: #888;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           CTA
+           ===================================================== */
+
+        .cta {
+            padding: 130px 7%;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(5,5,5,0.8),
+                    rgba(5,5,5,0.95)
+                );
+        }
+
+        .cta h2 {
+            font-size: clamp(45px,7vw,85px);
+
+            line-height: 0.9;
+
+            margin: 15px 0 25px;
+        }
+
+        .cta h2 span {
+            color: var(--gold);
+        }
+
+        .cta p {
+            color: #888;
+
+            margin-bottom: 25px;
+        }
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        footer {
+            padding: 35px 7%;
+
+            background: #030303;
+
+            border-top: 1px solid rgba(212,175,55,0.2);
+
+            text-align: center;
+        }
+
+        footer p {
+            color: #666;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 10px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                min-height: 500px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                height: auto;
+
+                padding: 18px 5%;
+
+                flex-direction: column;
+
+                gap: 18px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 12px;
+            }
+
+            .hero {
+                padding: 150px 6% 70px;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+
+                letter-spacing: -2px;
+            }
+
+            .hero-status {
+                gap: 20px;
+            }
+
+            .profile-frame {
+                height: 420px;
+            }
+
+            .circle-one {
+                width: 380px;
+                height: 380px;
+            }
+
+            .circle-two {
+                width: 450px;
+                height: 450px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 80px 6%;
+            }
         }
     </style>
 </head>
 
-
 <body>
 
-    <!-- =========================================
+    <!-- =====================================================
          GAMING BACKGROUND
-    ========================================== -->
+         ===================================================== -->
 
-    <div class="gaming-background"></div>
-    <div class="gaming-overlay"></div>
-
-
-    <!-- =========================================
-         BACKGROUND DECORATION
-    ========================================== -->
-
-    <div class="page-glow glow-one"></div>
-    <div class="page-glow glow-two"></div>
+    <div class="gaming-bg"></div>
+    <div class="gaming-bg-bottom"></div>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          NAVIGATION
-    ========================================== -->
+         ===================================================== -->
 
-    <header class="site-header">
+    <nav class="navbar">
 
-        <nav class="navbar container">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🎮</span>
+            PORTFOLIO<span>.</span>
+        </a>
 
-            <a href="index.html" class="logo">
-                <span class="logo-icon">🎮</span>
-                PORTFOLIO<span>.</span>
-            </a>
+        <div class="nav-links">
 
-            <div class="nav-links">
+            <a href="index.html" class="active">HOME</a>
 
-                <a href="index.html" class="active">
-                    HOME
-                </a>
+            <a href="profile.html">ABOUT</a>
 
-                <a href="profile.html">
-                    ABOUT
-                </a>
+            <a href="#skills">SKILLS</a>
 
-                <a href="#skills">
-                    SKILLS
-                </a>
+            <a href="#projects">PROJECTS</a>
 
-                <a href="#projects">
-                    PROJECTS
-                </a>
+            <a href="education.html">EDUCATION</a>
 
-                <a href="education.html">
-                    EDUCATION
-                </a>
+            <a href="hobby.html">HOBBIES</a>
 
-                <a href="hobby.html">
-                    HOBBIES
-                </a>
+            <a href="contact.html">CONTACT</a>
 
-                <a href="contact.html">
-                    CONTACT
-                </a>
+        </div>
 
-            </div>
+    </nav>
 
-        </nav>
 
-    </header>
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
 
+    <section class="hero">
 
-    <!-- =========================================
-         MAIN
-    ========================================== -->
+        <div class="hero-grid">
 
-    <main>
-
-
-        <!-- =====================================
-             HERO
-        ====================================== -->
-
-        <section class="hero section-dark">
-
-            <div class="container hero-grid">
-
-
-                <!-- HERO CONTENT -->
-
-                <div class="hero-content">
-
-                    <p class="eyebrow">
-
-                        <span></span>
-
-                        STUDENT GAMING PORTFOLIO
-
-                    </p>
-
-
-                    <h1>
-
-                        GAME ON.<br>
-
-                        <span>
-                            DREAM ON.
-                        </span>
-
-                    </h1>
-
-
-                    <div class="hero-line"></div>
-
-
-                    <p class="hero-intro">
-
-                        สวัสดีครับ! ผมชื่อ
-
-                        <strong>
-                            [กรอกชื่อ-นามสกุล]
-                        </strong>
-
-                        <br>
-
-                        นักเรียนชั้นมัธยมศึกษาปีที่ 3
-
-                    </p>
-
-
-                    <p class="hero-description">
-
-                        ผมเป็นนักเรียนที่สนใจด้านเทคโนโลยี
-                        การสร้างเว็บไซต์ การออกแบบ และโลกของเกม
-                        ผมชอบเรียนรู้สิ่งใหม่ ๆ
-                        และพัฒนาทักษะของตัวเองอยู่เสมอ
-
-                    </p>
-
-
-                    <div class="hero-buttons">
-
-                        <a
-                            href="#projects"
-                            class="btn btn-primary"
-                        >
-
-                            ดูผลงานของฉัน
-
-                            <span>
-                                →
-                            </span>
-
-                        </a>
-
-
-                        <a
-                            href="profile.html"
-                            class="btn btn-outline"
-                        >
-
-                            รู้จักฉันมากขึ้น
-
-                        </a>
-
-                    </div>
-
-
-                    <div class="hero-status">
-
-                        <div>
-
-                            <span>
-                                STATUS
-                            </span>
-
-                            <strong>
-                                LEVELING UP
-                            </strong>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>
-                                FOCUS
-                            </span>
-
-                            <strong>
-                                WEB & DESIGN
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PROFILE -->
-
-                <div class="hero-visual">
-
-                    <div class="tech-circle circle-one"></div>
-
-                    <div class="tech-circle circle-two"></div>
-
-
-                    <div class="profile-frame">
-
-                        <div class="frame-corner corner-top-left"></div>
-
-                        <div class="frame-corner corner-top-right"></div>
-
-                        <div class="frame-corner corner-bottom-left"></div>
-
-                        <div class="frame-corner corner-bottom-right"></div>
-
-
-                        <img
-                            src="https://placehold.co/500x600/111111/D4AF37?text=YOUR+PHOTO"
-                            alt="รูปโปรไฟล์ของฉัน"
-                        >
-
-                    </div>
-
-
-                    <div class="profile-tag">
-
-                        <span>
-                            PLAYER
-                        </span>
-
-                        <strong>
-                            [YOUR NAME]
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================
-             ABOUT
-        ====================================== -->
-
-        <section class="about-preview section">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <div class="section-number">
-                        01
-                    </div>
-
-
-                    <div>
-
-                        <p class="eyebrow">
-                            PLAYER PROFILE
-                        </p>
-
-                        <h2>
-                            ABOUT
-                            <span>
-                                ME
-                            </span>
-                        </h2>
-
-                        <p>
-                            เกี่ยวกับฉัน
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="about-grid">
-
-                    <div class="about-text">
-
-                        <h3>
-
-                            READY TO LEARN.<br>
-
-                            READY TO CREATE.
-
-                        </h3>
-
-
-                        <p>
-
-                            ผมเป็นนักเรียนชั้นมัธยมศึกษาปีที่ 3
-                            ที่สนใจเทคโนโลยี
-                            การออกแบบเว็บไซต์
-                            และการเรียนรู้สิ่งใหม่ ๆ
-
-                        </p>
-
-
-                        <p>
-
-                            ผมเชื่อว่าทุกทักษะสามารถพัฒนาได้
-                            หากเรามีความตั้งใจ ฝึกฝน
-                            และไม่หยุดเรียนรู้
-
-                        </p>
-
-
-                        <a
-                            href="profile.html"
-                            class="text-link"
-                        >
-
-                            ดูประวัติเพิ่มเติม
-
-                            <span>
-                                →
-                            </span>
-
-                        </a>
-
-                    </div>
-
-
-                    <div class="stats-grid">
-
-                        <div class="stat-item">
-
-                            <strong>
-                                3<span>+</span>
-                            </strong>
-
-                            <p>
-                                ปีแห่งการเรียนรู้
-                            </p>
-
-                        </div>
-
-
-                        <div class="stat-item">
-
-                            <strong>
-                                10<span>+</span>
-                            </strong>
-
-                            <p>
-                                โปรเจกต์
-                            </p>
-
-                        </div>
-
-
-                        <div class="stat-item">
-
-                            <strong>
-                                5<span>+</span>
-                            </strong>
-
-                            <p>
-                                ทักษะ
-                            </p>
-
-                        </div>
-
-
-                        <div class="stat-item">
-
-                            <strong>
-                                100<span>%</span>
-                            </strong>
-
-                            <p>
-                                ความตั้งใจ
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================
-             SKILLS
-        ====================================== -->
-
-        <section
-            class="skills-section section"
-            id="skills"
-        >
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <div class="section-number">
-                        02
-                    </div>
-
-
-                    <div>
-
-                        <p class="eyebrow">
-                            ABILITY SYSTEM
-                        </p>
-
-                        <h2>
-                            MY
-                            <span>
-                                SKILLS
-                            </span>
-                        </h2>
-
-                        <p>
-                            ทักษะของฉัน
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="skills-layout">
-
-
-                    <div class="skill-description">
-
-                        <div class="skill-big-icon">
-                            ⚡
-                        </div>
-
-
-                        <h3>
-
-                            SKILL<br>
-
-                            <span>
-                                UNLOCKED
-                            </span>
-
-                        </h3>
-
-
-                        <p>
-
-                            ทักษะเหล่านี้คือสิ่งที่ผมกำลังเรียนรู้
-                            และพัฒนาอย่างต่อเนื่อง
-
-                        </p>
-
-
-                        <div class="skill-panel-line"></div>
-
-
-                        <p class="small-text">
-
-                            LEVEL SYSTEM • CONTINUOUS LEARNING
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="skills-list">
-
-
-                        <div class="skill-row">
-
-                            <div class="skill-info">
-
-                                <span>
-                                    HTML
-                                </span>
-
-                                <strong>
-                                    90%
-                                </strong>
-
-                            </div>
-
-
-                            <div class="progress">
-
-                                <div class="progress-fill fill-90"></div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-row">
-
-                            <div class="skill-info">
-
-                                <span>
-                                    CSS
-                                </span>
-
-                                <strong>
-                                    85%
-                                </strong>
-
-                            </div>
-
-
-                            <div class="progress">
-
-                                <div class="progress-fill fill-85"></div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-row">
-
-                            <div class="skill-info">
-
-                                <span>
-                                    JAVASCRIPT
-                                </span>
-
-                                <strong>
-                                    75%
-                                </strong>
-
-                            </div>
-
-
-                            <div class="progress">
-
-                                <div class="progress-fill fill-75"></div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-row">
-
-                            <div class="skill-info">
-
-                                <span>
-                                    PYTHON
-                                </span>
-
-                                <strong>
-                                    70%
-                                </strong>
-
-                            </div>
-
-
-                            <div class="progress">
-
-                                <div class="progress-fill fill-70"></div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-row">
-
-                            <div class="skill-info">
-
-                                <span>
-                                    UI / UX DESIGN
-                                </span>
-
-                                <strong>
-                                    75%
-                                </strong>
-
-                            </div>
-
-
-                            <div class="progress">
-
-                                <div class="progress-fill fill-75"></div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-row">
-
-                            <div class="skill-info">
-
-                                <span>
-                                    TEAMWORK
-                                </span>
-
-                                <strong>
-                                    90%
-                                </strong>
-
-                            </div>
-
-
-                            <div class="progress">
-
-                                <div class="progress-fill fill-90"></div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================
-             PROJECTS
-        ====================================== -->
-
-        <section
-            class="projects-section section"
-            id="projects"
-        >
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <div class="section-number">
-                        03
-                    </div>
-
-
-                    <div>
-
-                        <p class="eyebrow">
-                            MISSION COMPLETED
-                        </p>
-
-                        <h2>
-                            MY
-                            <span>
-                                PROJECTS
-                            </span>
-                        </h2>
-
-                        <p>
-                            ผลงานของฉัน
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="project-filter">
-
-                    <button class="filter active-filter">
-                        ทั้งหมด
-                    </button>
-
-                    <button class="filter">
-                        Coding
-                    </button>
-
-                    <button class="filter">
-                        Website
-                    </button>
-
-                    <button class="filter">
-                        Design
-                    </button>
-
-                    <button class="filter">
-                        Other
-                    </button>
-
-                </div>
-
-
-                <div class="projects-grid">
-
-
-                    <article class="project-card">
-
-                        <div class="project-image">
-
-                            <img
-                                src="https://placehold.co/700x450/111111/D4AF37?text=E-SPORT+TOURNAMENT"
-                                alt="ผลงาน E-Sport Tournament"
-                            >
-
-                            <span class="project-type">
-                                DESIGN
-                            </span>
-
-                        </div>
-
-
-                        <div class="project-content">
-
-                            <p class="project-code">
-                                PROJECT_01
-                            </p>
-
-                            <h3>
-                                E-SPORT TOURNAMENT
-                            </h3>
-
-                            <p>
-
-                                ผลงานเกี่ยวกับการแข่งขัน E-Sport
-                                ออกแบบให้มีความดุดันและทันสมัย
-
-                            </p>
-
-
-                            <a
-                                href="#"
-                                class="project-link"
-                            >
-
-                                ดูรายละเอียด
-
-                                <span>
-                                    →
-                                </span>
-
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="project-card featured-project"
-                    >
-
-                        <div class="project-image">
-
-                            <img
-                                src="https://placehold.co/700x450/171717/F5C451?text=PORTFOLIO+WEBSITE"
-                                alt="ผลงาน Portfolio Website"
-                            >
-
-                            <span class="project-type">
-                                WEBSITE
-                            </span>
-
-                        </div>
-
-
-                        <div class="project-content">
-
-                            <p class="project-code">
-                                PROJECT_02
-                            </p>
-
-                            <h3>
-                                PORTFOLIO WEBSITE
-                            </h3>
-
-                            <p>
-
-                                เว็บไซต์แนะนำตัวเองแนว Gaming
-                                ที่ออกแบบด้วย HTML และ CSS
-
-                            </p>
-
-
-                            <a
-                                href="#"
-                                class="project-link"
-                            >
-
-                                ดูรายละเอียด
-
-                                <span>
-                                    →
-                                </span>
-
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="project-card">
-
-                        <div class="project-image">
-
-                            <img
-                                src="https://placehold.co/700x450/111111/D4AF37?text=SCHOOL+PROJECT"
-                                alt="ผลงานโครงงานในโรงเรียน"
-                            >
-
-                            <span class="project-type">
-                                CODING
-                            </span>
-
-                        </div>
-
-
-                        <div class="project-content">
-
-                            <p class="project-code">
-                                PROJECT_03
-                            </p>
-
-                            <h3>
-                                SCHOOL PROJECT
-                            </h3>
-
-                            <p>
-
-                                ผลงานและโครงงานที่สร้างขึ้น
-                                เพื่อใช้ในการเรียนและพัฒนาทักษะ
-
-                            </p>
-
-
-                            <a
-                                href="#"
-                                class="project-link"
-                            >
-
-                                ดูรายละเอียด
-
-                                <span>
-                                    →
-                                </span>
-
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================
-             ACHIEVEMENTS
-        ====================================== -->
-
-        <section class="achievement-preview section">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <div class="section-number">
-                        05
-                    </div>
-
-
-                    <div>
-
-                        <p class="eyebrow">
-                            PLAYER ACHIEVEMENTS
-                        </p>
-
-                        <h2>
-                            MY
-                            <span>
-                                ACHIEVEMENTS
-                            </span>
-                        </h2>
-
-                        <p>
-                            ความสำเร็จของฉัน
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="achievement-grid">
-
-
-                    <div class="achievement-card">
-
-                        <div class="achievement-icon">
-                            🏅
-                        </div>
-
-                        <span>
-                            2026
-                        </span>
-
-                        <h3>
-                            รางวัลชนะเลิศ
-                        </h3>
-
-                        <p>
-                            ผลงานหรือกิจกรรมที่ได้รับรางวัล
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="achievement-card main-achievement"
-                    >
-
-                        <div class="achievement-icon">
-                            🏆
-                        </div>
-
-                        <span>
-                            2026
-                        </span>
-
-                        <h3>
-                            เข้าร่วมการแข่งขัน
-                        </h3>
-
-                        <p>
-                            ประสบการณ์การแข่งขัน
-                            และการทำงานร่วมกับทีม
-                        </p>
-
-                    </div>
-
-
-                    <div class="achievement-card">
-
-                        <div class="achievement-icon">
-                            ⭐
-                        </div>
-
-                        <span>
-                            2026
-                        </span>
-
-                        <h3>
-                            เกียรติบัตร
-                        </h3>
-
-                        <p>
-                            ผลงานและกิจกรรมที่ได้รับการรับรอง
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================
-             CTA
-        ====================================== -->
-
-        <section class="cta-section">
-
-            <div class="container cta-content">
+            <div class="hero-content">
 
                 <p class="eyebrow">
-                    NEXT MISSION
+                    STUDENT GAMING PORTFOLIO
                 </p>
 
+                <h1>
+                    GAME<br>
+                    <span>ON.</span>
+                </h1>
+
+                <div class="hero-line"></div>
+
+                <p class="hero-intro">
+
+                    สวัสดีครับ! ผมชื่อ
+                    <strong>[กรอกชื่อ-นามสกุล]</strong>
+
+                    <br>
+
+                    นักเรียนชั้นมัธยมศึกษาปีที่ 3
+
+                </p>
+
+                <p class="hero-description">
+
+                    ผมสนใจด้านเทคโนโลยี การสร้างเว็บไซต์
+                    การออกแบบ และโลกของเกม
+                    พร้อมเรียนรู้สิ่งใหม่ ๆ
+                    และพัฒนาทักษะของตัวเองอย่างต่อเนื่อง
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="#projects" class="btn btn-primary">
+
+                        VIEW PROJECTS
+
+                        <span>→</span>
+
+                    </a>
+
+                    <a href="profile.html" class="btn btn-outline">
+
+                        EXPLORE PROFILE
+
+                    </a>
+
+                </div>
+
+
+                <div class="hero-status">
+
+                    <div>
+
+                        <span>STATUS</span>
+
+                        <strong>LEVELING UP</strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>FOCUS</span>
+
+                        <strong>WEB & DESIGN</strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>CLASS</span>
+
+                        <strong>M.3</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROFILE VISUAL
+                 ================================================= -->
+
+            <div class="hero-visual">
+
+                <div class="tech-circle circle-one"></div>
+
+                <div class="tech-circle circle-two"></div>
+
+
+                <div class="profile-frame">
+
+                    <div class="frame-corner corner-top-left"></div>
+
+                    <div class="frame-corner corner-top-right"></div>
+
+                    <div class="frame-corner corner-bottom-left"></div>
+
+                    <div class="frame-corner corner-bottom-right"></div>
+
+
+                    <!-- เปลี่ยนเป็นรูปของตัวเองภายหลัง -->
+
+                    <img
+                        src="https://placehold.co/500x600/111111/D4AF37?text=YOUR+PHOTO"
+                        alt="รูปโปรไฟล์"
+                    >
+
+                </div>
+
+
+                <div class="profile-tag">
+
+                    <span>PLAYER</span>
+
+                    <strong>[YOUR NAME]</strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+
+    <section class="section">
+
+        <div class="section-inner">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">01 / PLAYER PROFILE</p>
 
                 <h2>
-
-                    READY TO<br>
-
-                    <span>
-                        CONNECT?
-                    </span>
-
+                    ABOUT <span>ME</span>
                 </h2>
 
-
-                <p>
-
-                    สามารถดูข้อมูลเพิ่มเติม
-                    และติดต่อฉันได้ที่หน้าติดต่อ
-
+                <p class="section-subtitle">
+                    รู้จักตัวตนและความสนใจของฉัน
                 </p>
 
+            </div>
 
-                <a
-                    href="contact.html"
-                    class="btn btn-primary"
-                >
 
-                    CONTACT ME
+            <div class="about-grid">
 
-                    <span>
-                        →
-                    </span>
+                <div class="about-text">
 
-                </a>
+                    <h3 class="about-title">
+                        READY TO LEARN.<br>
+                        READY TO <span>CREATE.</span>
+                    </h3>
+
+                    <p>
+                        ผมเป็นนักเรียนชั้นมัธยมศึกษาปีที่ 3
+                        ที่สนใจเทคโนโลยี การออกแบบเว็บไซต์
+                        และการสร้างสรรค์ผลงานดิจิทัล
+                    </p>
+
+                    <p>
+                        ผมเชื่อว่าการเรียนรู้ที่ดีที่สุด
+                        คือการได้ลงมือทำจริง
+                        ทดลองสิ่งใหม่ และพัฒนาตัวเองอยู่เสมอ
+                    </p>
+
+                    <a href="profile.html" class="btn btn-outline">
+                        READ MORE →
+                    </a>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat">
+
+                        <strong>03+</strong>
+
+                        <p>ปีแห่งการเรียนรู้</p>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <strong>10+</strong>
+
+                        <p>โปรเจกต์</p>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <strong>05+</strong>
+
+                        <p>ทักษะ</p>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <strong>100%</strong>
+
+                        <p>ความตั้งใจ</p>
+
+                    </div>
+
+                </div>
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
+    </section>
 
 
-    <!-- =========================================
+    <!-- =====================================================
+         SKILLS
+         ===================================================== -->
+
+    <section class="section" id="skills">
+
+        <div class="section-inner">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">02 / ABILITY SYSTEM</p>
+
+                <h2>
+                    MY <span>SKILLS</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    ทักษะที่กำลังเรียนรู้และพัฒนา
+                </p>
+
+            </div>
+
+
+            <div class="skills-list">
+
+                <div class="skill">
+
+                    <div class="skill-top">
+
+                        <span>HTML</span>
+
+                        <span>90%</span>
+
+                    </div>
+
+                    <div class="progress">
+                        <span style="width:90%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-top">
+
+                        <span>CSS</span>
+
+                        <span>85%</span>
+
+                    </div>
+
+                    <div class="progress">
+                        <span style="width:85%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-top">
+
+                        <span>JAVASCRIPT</span>
+
+                        <span>75%</span>
+
+                    </div>
+
+                    <div class="progress">
+                        <span style="width:75%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-top">
+
+                        <span>PYTHON</span>
+
+                        <span>70%</span>
+
+                    </div>
+
+                    <div class="progress">
+                        <span style="width:70%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-top">
+
+                        <span>UI / UX DESIGN</span>
+
+                        <span>75%</span>
+
+                    </div>
+
+                    <div class="progress">
+                        <span style="width:75%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-top">
+
+                        <span>TEAMWORK</span>
+
+                        <span>90%</span>
+
+                    </div>
+
+                    <div class="progress">
+                        <span style="width:90%"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROJECTS
+         ===================================================== -->
+
+    <section class="section" id="projects">
+
+        <div class="section-inner">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">03 / MISSION COMPLETED</p>
+
+                <h2>
+                    MY <span>PROJECTS</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    ผลงานที่สร้างขึ้นระหว่างการเรียนรู้
+                </p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+                <article class="project">
+
+                    <div class="project-image">
+
+                        <img
+                            src="https://placehold.co/700x450/111111/D4AF37?text=E-SPORT"
+                            alt="E-Sport Tournament"
+                        >
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <span class="project-number">
+                            PROJECT_01
+                        </span>
+
+                        <h3>
+                            E-SPORT TOURNAMENT
+                        </h3>
+
+                        <p>
+                            ผลงานออกแบบเกี่ยวกับการแข่งขัน
+                            E-Sport ในสไตล์ Gaming
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <div class="project-image">
+
+                        <img
+                            src="https://placehold.co/700x450/171717/F5C451?text=PORTFOLIO"
+                            alt="Portfolio Website"
+                        >
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <span class="project-number">
+                            PROJECT_02
+                        </span>
+
+                        <h3>
+                            PORTFOLIO WEBSITE
+                        </h3>
+
+                        <p>
+                            เว็บไซต์แนะนำตัวเอง
+                            ที่ออกแบบด้วย HTML และ CSS
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <div class="project-image">
+
+                        <img
+                            src="https://placehold.co/700x450/111111/D4AF37?text=SCHOOL+PROJECT"
+                            alt="School Project"
+                        >
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <span class="project-number">
+                            PROJECT_03
+                        </span>
+
+                        <h3>
+                            SCHOOL PROJECT
+                        </h3>
+
+                        <p>
+                            โครงงานและผลงานที่สร้างขึ้น
+                            เพื่อพัฒนาทักษะด้านเทคโนโลยี
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="cta">
+
+        <p class="eyebrow" style="justify-content:center;">
+            NEXT MISSION
+        </p>
+
+        <h2>
+            READY TO<br>
+            <span>CONNECT?</span>
+        </h2>
+
+        <p>
+            สนใจผลงานหรืออยากรู้จักฉันมากขึ้น?
+        </p>
+
+        <a href="contact.html" class="btn btn-primary">
+            CONTACT ME →
+        </a>
+
+    </section>
+
+
+    <!-- =====================================================
          FOOTER
-    ========================================== -->
+         ===================================================== -->
 
-    <footer class="footer">
+    <footer>
 
-        <div class="container footer-top">
-
-            <a
-                href="index.html"
-                class="logo"
-            >
-
-                🎮 PORTFOLIO<span>.</span>
-
-            </a>
-
-
-            <div class="footer-links">
-
-                <a href="index.html">
-                    HOME
-                </a>
-
-                <a href="profile.html">
-                    ABOUT
-                </a>
-
-                <a href="education.html">
-                    EDUCATION
-                </a>
-
-                <a href="hobby.html">
-                    HOBBIES
-                </a>
-
-                <a href="contact.html">
-                    CONTACT
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="container footer-bottom">
-
-            <p>
-                © 2026 [ชื่อของคุณ]. All rights reserved.
-            </p>
-
-            <p>
-                DESIGNED WITH PASSION FOR GAMING & TECHNOLOGY
-            </p>
-
-        </div>
+        <p>
+            © 2026 [ชื่อของคุณ]
+            • DESIGNED WITH PASSION FOR GAMING & TECHNOLOGY
+        </p>
 
     </footer>
 
-
 </body>
 </html>
-```
